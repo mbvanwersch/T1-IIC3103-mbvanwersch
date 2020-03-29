@@ -21,10 +21,6 @@ table {
   width: 100%;
 }
 
-tr {
-  color: white;
-  background-color: grey;
-}
 
 th, td {
   padding: 8px;
@@ -59,7 +55,7 @@ th, td {
       <p><b>Code: </b>{{ episode_info.code }}</p>
           <table>
               <tr>
-                  <th>Characters</th>
+                  <th><b>Characters</b></th>
               </tr>
               <ul>
               {% for c in episode_info.characters %}
@@ -75,7 +71,7 @@ th, td {
 
 <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
   <h2> Do a search in the site </h2>
-  <p> It will display every result that has your search in his attributes </p>
+  <p> It will display every result that has your search in his name </p>
   <form class="example" action="/search">
     <input type="text" placeholder="Search.." name="words" value="{{words}}">
     <button type="submit"><i class="fa fa-search"></i></button>

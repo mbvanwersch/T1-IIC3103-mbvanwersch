@@ -47,22 +47,22 @@ def get_episodes_list_filter(words):
                     episodes_list.append(episode)
             counter += 1
 
-    # Filter by episode
-    url = "https://rickandmortyapi.com/api/episode/?episode="+words
-    r = requests.get(url, headers={})
-    episodes = r.json()
-    if 'error' not in episodes.keys():
-        num_pages = episodes['info']['pages']
-        pages = []
-        counter = 1
-        while counter <= num_pages:
-            url = "https://rickandmortyapi.com/api/episode?page="+str(counter)+"&episode="+words
-            r = requests.get(url, headers={})
-            episodes_page = r.json()['results']
-            for episode in episodes_page:
-                if episode not in episodes_list:
-                    episodes_list.append(episode)
-            counter += 1
+    # # Filter by episode
+    # url = "https://rickandmortyapi.com/api/episode/?episode="+words
+    # r = requests.get(url, headers={})
+    # episodes = r.json()
+    # if 'error' not in episodes.keys():
+    #     num_pages = episodes['info']['pages']
+    #     pages = []
+    #     counter = 1
+    #     while counter <= num_pages:
+    #         url = "https://rickandmortyapi.com/api/episode?page="+str(counter)+"&episode="+words
+    #         r = requests.get(url, headers={})
+    #         episodes_page = r.json()['results']
+    #         for episode in episodes_page:
+    #             if episode not in episodes_list:
+    #                 episodes_list.append(episode)
+    #         counter += 1
     return episodes_list
 
 
@@ -85,73 +85,73 @@ def get_characters_list_filter(words):
                     characters_list.append(character)
             counter += 1
 
-    # Filter by status
-    url = "https://rickandmortyapi.com/api/character/?status="+words
-    r = requests.get(url, headers={})
-    characters = r.json()
-    if 'error' not in characters.keys():
-        num_pages = characters['info']['pages']
-        pages = []
-        counter = 1
-        while counter <= num_pages:
-            url = "https://rickandmortyapi.com/api/character?page="+str(counter)+"&status="+words
-            r = requests.get(url, headers={})
-            characters_page = r.json()['results']
-            for character in characters_page:
-                if character not in characters_list:
-                    characters_list.append(character)
-            counter += 1
-
-    # Filter by species
-    url = "https://rickandmortyapi.com/api/character/?species="+words
-    r = requests.get(url, headers={})
-    characters = r.json()
-    if 'error' not in characters.keys():
-        num_pages = characters['info']['pages']
-        pages = []
-        counter = 1
-        while counter <= num_pages:
-            url = "https://rickandmortyapi.com/api/character?page="+str(counter)+"&species="+words
-            r = requests.get(url, headers={})
-            characters_page = r.json()['results']
-            for character in characters_page:
-                if character not in characters_list:
-                    characters_list.append(character)
-            counter += 1
-
-    # Filter by type
-    url = "https://rickandmortyapi.com/api/character/?type="+words
-    r = requests.get(url, headers={})
-    characters = r.json()
-    if 'error' not in characters.keys():
-        num_pages = characters['info']['pages']
-        pages = []
-        counter = 1
-        while counter <= num_pages:
-            url = "https://rickandmortyapi.com/api/character?page="+str(counter)+"&type="+words
-            r = requests.get(url, headers={})
-            characters_page = r.json()['results']
-            for character in characters_page:
-                if character not in characters_list:
-                    characters_list.append(character)
-            counter += 1
-
-    # Filter by gender
-    url = "https://rickandmortyapi.com/api/character/?gender="+words
-    r = requests.get(url, headers={})
-    characters = r.json()
-    if 'error' not in characters.keys():
-        num_pages = characters['info']['pages']
-        pages = []
-        counter = 1
-        while counter <= num_pages:
-            url = "https://rickandmortyapi.com/api/character?page="+str(counter)+"&gender="+words
-            r = requests.get(url, headers={})
-            characters_page = r.json()['results']
-            for character in characters_page:
-                if character not in characters_list:
-                    characters_list.append(character)
-            counter += 1
+    # # Filter by status
+    # url = "https://rickandmortyapi.com/api/character/?status="+words
+    # r = requests.get(url, headers={})
+    # characters = r.json()
+    # if 'error' not in characters.keys():
+    #     num_pages = characters['info']['pages']
+    #     pages = []
+    #     counter = 1
+    #     while counter <= num_pages:
+    #         url = "https://rickandmortyapi.com/api/character?page="+str(counter)+"&status="+words
+    #         r = requests.get(url, headers={})
+    #         characters_page = r.json()['results']
+    #         for character in characters_page:
+    #             if character not in characters_list:
+    #                 characters_list.append(character)
+    #         counter += 1
+    #
+    # # Filter by species
+    # url = "https://rickandmortyapi.com/api/character/?species="+words
+    # r = requests.get(url, headers={})
+    # characters = r.json()
+    # if 'error' not in characters.keys():
+    #     num_pages = characters['info']['pages']
+    #     pages = []
+    #     counter = 1
+    #     while counter <= num_pages:
+    #         url = "https://rickandmortyapi.com/api/character?page="+str(counter)+"&species="+words
+    #         r = requests.get(url, headers={})
+    #         characters_page = r.json()['results']
+    #         for character in characters_page:
+    #             if character not in characters_list:
+    #                 characters_list.append(character)
+    #         counter += 1
+    #
+    # # Filter by type
+    # url = "https://rickandmortyapi.com/api/character/?type="+words
+    # r = requests.get(url, headers={})
+    # characters = r.json()
+    # if 'error' not in characters.keys():
+    #     num_pages = characters['info']['pages']
+    #     pages = []
+    #     counter = 1
+    #     while counter <= num_pages:
+    #         url = "https://rickandmortyapi.com/api/character?page="+str(counter)+"&type="+words
+    #         r = requests.get(url, headers={})
+    #         characters_page = r.json()['results']
+    #         for character in characters_page:
+    #             if character not in characters_list:
+    #                 characters_list.append(character)
+    #         counter += 1
+    #
+    # # Filter by gender
+    # url = "https://rickandmortyapi.com/api/character/?gender="+words
+    # r = requests.get(url, headers={})
+    # characters = r.json()
+    # if 'error' not in characters.keys():
+    #     num_pages = characters['info']['pages']
+    #     pages = []
+    #     counter = 1
+    #     while counter <= num_pages:
+    #         url = "https://rickandmortyapi.com/api/character?page="+str(counter)+"&gender="+words
+    #         r = requests.get(url, headers={})
+    #         characters_page = r.json()['results']
+    #         for character in characters_page:
+    #             if character not in characters_list:
+    #                 characters_list.append(character)
+    #         counter += 1
 
     return characters_list
 
@@ -175,39 +175,39 @@ def get_locations_list_filter(words):
                     locations_list.append(location)
             counter += 1
 
-    # Filter by type
-    url = "https://rickandmortyapi.com/api/location/?type="+words
-    r = requests.get(url, headers={})
-    locations = r.json()
-    if 'error' not in locations.keys():
-        num_pages = locations['info']['pages']
-        pages = []
-        counter = 1
-        while counter <= num_pages:
-            url = "https://rickandmortyapi.com/api/location?page="+str(counter)+"&type="+words
-            r = requests.get(url, headers={})
-            locations_page = r.json()['results']
-            for location in locations_page:
-                if location not in locations_list:
-                    locations_list.append(location)
-            counter += 1
-
-    # Filter by dimension
-    url = "https://rickandmortyapi.com/api/location/?dimension="+words
-    r = requests.get(url, headers={})
-    locations = r.json()
-    if 'error' not in locations.keys():
-        num_pages = locations['info']['pages']
-        pages = []
-        counter = 1
-        while counter <= num_pages:
-            url = "https://rickandmortyapi.com/api/location?page="+str(counter)+"&dimension="+words
-            r = requests.get(url, headers={})
-            locations_page = r.json()['results']
-            for location in locations_page:
-                if location not in locations_list:
-                    locations_list.append(location)
-            counter += 1
+    # # Filter by type
+    # url = "https://rickandmortyapi.com/api/location/?type="+words
+    # r = requests.get(url, headers={})
+    # locations = r.json()
+    # if 'error' not in locations.keys():
+    #     num_pages = locations['info']['pages']
+    #     pages = []
+    #     counter = 1
+    #     while counter <= num_pages:
+    #         url = "https://rickandmortyapi.com/api/location?page="+str(counter)+"&type="+words
+    #         r = requests.get(url, headers={})
+    #         locations_page = r.json()['results']
+    #         for location in locations_page:
+    #             if location not in locations_list:
+    #                 locations_list.append(location)
+    #         counter += 1
+    #
+    # # Filter by dimension
+    # url = "https://rickandmortyapi.com/api/location/?dimension="+words
+    # r = requests.get(url, headers={})
+    # locations = r.json()
+    # if 'error' not in locations.keys():
+    #     num_pages = locations['info']['pages']
+    #     pages = []
+    #     counter = 1
+    #     while counter <= num_pages:
+    #         url = "https://rickandmortyapi.com/api/location?page="+str(counter)+"&dimension="+words
+    #         r = requests.get(url, headers={})
+    #         locations_page = r.json()['results']
+    #         for location in locations_page:
+    #             if location not in locations_list:
+    #                 locations_list.append(location)
+    #         counter += 1
 
     return locations_list
 

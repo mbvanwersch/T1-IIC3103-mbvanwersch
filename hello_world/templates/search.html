@@ -21,11 +21,6 @@ table {
   width: 100%;
 }
 
-tr {
-  color: white;
-  background-color: grey;
-}
-
 th, td {
   padding: 8px;
   text-align: left;
@@ -56,7 +51,7 @@ th, td {
       <h3>You searched for: {{ words }} </h3>
         <table>
               <tr>
-                  <th>Episodes</th>
+                  <th><b>Episodes</b></th>
               </tr>
               <ul>
               {% for e in episodes_info %}
@@ -69,7 +64,7 @@ th, td {
 
           <table>
                   <tr>
-                      <th>Characters</th>
+                      <th><b>Characters</b></th>
                   </tr>
                   <ul>
                   {% for c in characters_info %}
@@ -82,7 +77,7 @@ th, td {
 
           <table>
                   <tr>
-                      <th>Locations</th>
+                      <th><b>Locations</b></th>
                   </tr>
                   <ul>
                   {% for l in locations_info %}
@@ -98,7 +93,7 @@ th, td {
 
 <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
   <h2> Do a search in the site </h2>
-  <p> It will display every result that has your search in his attributes </p>
+  <p> It will display every result that has your search in his name </p>
   <form class="example" action="/search">
     <input type="text" placeholder="Search.." name="words" value="{{words}}">
     <button type="submit"><i class="fa fa-search"></i></button>
