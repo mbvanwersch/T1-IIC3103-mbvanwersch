@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .services import get_episodes_list, get_episode, get_character, get_location, get_character_with_url, get_character_id, get_character_name, get_episode_name, get_episode_id, get_location_id, get_episodes_list_filter, get_characters_list_filter, get_locations_list_filter
+from .services import get_episodes_list, get_episode, get_character, get_location, get_character_with_url, get_episode_with_url, get_location_id, get_episodes_list_filter, get_characters_list_filter, get_locations_list_filter
 
 def hello_world(request):
     episodes_list = get_episodes_list()
@@ -25,7 +25,8 @@ def show_episode(request):
     characters = []
 
     for character_url in episode['characters']:
-         characters.append({'name' : get_character_name(character_url), 'id' : get_character_id(character_url)})
+         character = get_character_with_url(url)
+         characters.append({'name' : character['name'], 'id' : character['id']})
 
     episode_info = {
         'episode_number' : episode['episode'],
@@ -46,7 +47,8 @@ def show_character(request):
     episodes = []
 
     for episode_url in character['episode']:
-         episodes.append({'name' : get_episode_name(episode_url), 'id' : get_episode_id(episode_url)})
+         episode = get_episode_with_url(url)
+         episodes.append({'name' : episode['name'], 'id' : episode['id']})
 
     if character['origin']['name'] != 'unknown':
         origin = {'name' : character['origin']['name'], 'id' : get_location_id(character['origin']['url'])}

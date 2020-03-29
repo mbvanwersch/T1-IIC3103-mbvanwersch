@@ -237,6 +237,11 @@ def get_episode_id(url):
     episode = r.json()
     return episode['id']
 
+def get_episode_with_url(url):
+    r = requests.get(url, headers={})
+    episode = r.json()
+    return episode
+
 def get_character(id):
     url = "https://rickandmortyapi.com/api/character/"+str(id)
     r = requests.get(url)
@@ -253,6 +258,11 @@ def get_location_id(url):
     r = requests.get(url, headers={})
     location = r.json()
     return location['id']
+
+def get_location_with_url(url):
+    r = requests.get(url, headers={})
+    location = r.json()
+    return location
 
 # (1)
 # print("Episodes list")
