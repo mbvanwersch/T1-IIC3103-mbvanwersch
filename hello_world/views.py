@@ -25,7 +25,7 @@ def show_episode(request):
     characters = []
 
     for character_url in episode['characters']:
-         character = get_character_with_url(url)
+         character = get_character_with_url(character_url)
          characters.append({'name' : character['name'], 'id' : character['id']})
 
     episode_info = {
@@ -47,7 +47,7 @@ def show_character(request):
     episodes = []
 
     for episode_url in character['episode']:
-         episode = get_episode_with_url(url)
+         episode = get_episode_with_url(episode_url)
          episodes.append({'name' : episode['name'], 'id' : episode['id']})
 
     if character['origin']['name'] != 'unknown':
