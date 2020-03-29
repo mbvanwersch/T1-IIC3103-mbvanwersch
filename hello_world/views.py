@@ -85,7 +85,7 @@ def show_location(request):
 
     resident_ids = ""
     for resident_url in location['residents']:
-         resident_ids += resident_url.strip("/")[-1]
+         resident_ids += resident_url.split("/")[-1]
          # character = get_character_with_url(resident_url)
          # residents.append({'name' : character['name'], 'id' : character['id']})
          # cuantas_req += 1
