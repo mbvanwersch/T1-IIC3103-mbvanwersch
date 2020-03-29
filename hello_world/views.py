@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .services import get_episodes_list, get_episode, get_character, get_location, get_character_name, get_episode_name, get_character_id, get_episode_id, get_location_id, get_episodes_list_filter, get_characters_list_filter, get_locations_list_filter
+from .services import get_episodes_list, get_episode, get_character, get_location, get_character_with_url, get_character_id, get_character_name, get_episode_name, get_episode_id, get_location_id, get_episodes_list_filter, get_characters_list_filter, get_locations_list_filter
 
 def hello_world(request):
     episodes_list = get_episodes_list()
@@ -82,7 +82,8 @@ def show_location(request):
     residents = []
 
     for resident_url in location['residents']:
-         residents.append({'name' : get_character_name(resident_url), 'id' : get_character_id(resident_url)})
+         character = get_character_with_url(resident_url)
+         residents.append({'name' : character['name'], 'id' : character['id']})
 
     location_info = {
         'name' : location['name'],

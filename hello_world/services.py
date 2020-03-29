@@ -222,6 +222,11 @@ def get_character_id(url):
     character = r.json()
     return character['id']
 
+def get_character_with_url(url):
+    r = requests.get(url, headers={})
+    character = r.json()
+    return character
+
 def get_episode_name(url):
     r = requests.get(url, headers={})
     episode = r.json()
