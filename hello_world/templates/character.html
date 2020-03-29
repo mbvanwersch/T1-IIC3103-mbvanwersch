@@ -5,7 +5,7 @@
 <! CSS basado en https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_start_page&stacked=h >
 
 <html lang="en">
-<title>W3.CSS Template</title>
+<title>Character</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -13,12 +13,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+body,h1,h2,h3,h4,h5,h6,p {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
 table {
   border-collapse: collapse;
   width: 100%;
+}
+
+tr {
+  color: white;
+  background-color: grey;
 }
 
 th, td {
@@ -48,20 +53,20 @@ th, td {
   <div class="w3-content">
     <div class="w3-twothird">
       <h2>Character information</h2>
-      <p>Name: {{ character_info.name }}</p>
-      <p>Status: {{ character_info.status }}</p>
-      <p>Species: {{ character_info.species }}</p>
-      <p>Type: {{ character_info.type }}</p>
-      <p>Gender: {{ character_info.gender }}</p>
+      <p><b>Name: </b>{{ character_info.name }}</p>
+      <p><b>Status: </b>{{ character_info.status }}</p>
+      <p><b>Species: </b>{{ character_info.species }}</p>
+      <p><b>Type: </b>{{ character_info.type }}</p>
+      <p><b>Gender: </b>{{ character_info.gender }}</p>
       {% if character_info.origin.id == -1 %}
-      <p>Origin: {{ character_info.origin.name }}</p>
+      <p><b>Origin: </b>{{ character_info.origin.name }}</p>
       {% else %}
-      <p>Origin: <a href="/location/?id={{ character_info.origin.id }}">{{ character_info.origin.name }}</a></p>
+      <p><b>Origin: </b><a href="/location/?id={{ character_info.origin.id }}">{{ character_info.origin.name }}</a></p>
       {% endif %}
       {% if character_info.location.id == -1 %}
-      <p>Location: {{ character_info.location.name }}</p>
+      <p><b>Location: </b>{{ character_info.location.name }}</p>
       {% else %}
-      <p>Location: <a href="/location/?id={{ character_info.location.id }}">{{ character_info.location.name }}</a></p>
+      <p><b>Location: </b><a href="/location/?id={{ character_info.location.id }}">{{ character_info.location.name }}</a></p>
       {% endif %}
       <p><img src={{ character_info.image }}></p>
           <table>
