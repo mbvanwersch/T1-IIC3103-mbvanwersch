@@ -90,9 +90,10 @@ def show_location(request):
          # residents.append({'name' : character['name'], 'id' : character['id']})
          # cuantas_req += 1
 
-    residents_total = get_multiple_character(resident_ids[:-1])
-    for res in residents_total:
-        residents.append({'name' : res['name'], 'id' : res['id']})
+    if len(resident_ids) > 0:
+        residents_total = get_multiple_character(resident_ids[:-1])
+        for res in residents_total:
+            residents.append({'name' : res['name'], 'id' : res['id']})
 
     location_info = {
         'name' : location['name'],
