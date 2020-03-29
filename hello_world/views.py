@@ -24,10 +24,6 @@ def show_episode(request):
     episode = get_episode(id)
     characters = []
 
-    # for character_url in episode['characters']:
-    #      character = get_character_with_url(character_url)
-    #      characters.append({'name' : character['name'], 'id' : character['id']})
-
     characters_ids = ""
     for character_url in episode['characters']:
          characters_ids += character_url.split("/")[-1]+","
