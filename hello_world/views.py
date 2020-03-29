@@ -48,9 +48,15 @@ def show_character(request):
     for episode_url in character['episode']:
          episodes.append({'name' : get_episode_name(episode_url), 'id' : get_episode_id(episode_url)})
 
-    origin = {'name' : character['origin']['name'], 'id' : get_location_id(character['origin']['url'])}
+    if character['origin']['name'] != 'unknown':
+        origin = {'name' : character['origin']['name'], 'id' : get_location_id(character['origin']['url'])}
+    else:
+        origin = {'name' : character['origin']['name'], 'id' : -1}
 
-    location = {'name' : character['location']['name'], 'id' : get_location_id(character['location']['url'])}
+    if character['location']['name'] != 'unknown':
+        location = {'name' : character['location']['name'], 'id' : get_location_id(character['location']['url'])}
+    else:
+        location = {'name' : character['location']['name'], 'id' : -1}
 
     character_info = {
         'name' : character['name'],

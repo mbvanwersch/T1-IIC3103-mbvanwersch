@@ -53,8 +53,16 @@ th, td {
       <p>Species: {{ character_info.species }}</p>
       <p>Type: {{ character_info.type }}</p>
       <p>Gender: {{ character_info.gender }}</p>
+      {% if character_info.origin.id == -1 %}
+      <p>Origin: {{ character_info.origin.name }}</p>
+      {% else %}
       <p>Origin: <a href="/location/?id={{ character_info.origin.id }}">{{ character_info.origin.name }}</a></p>
+      {% endif %}
+      {% if character_info.location.id == -1 %}
+      <p>Location: {{ character_info.location.name }}</p>
+      {% else %}
       <p>Location: <a href="/location/?id={{ character_info.location.id }}">{{ character_info.location.name }}</a></p>
+      {% endif %}
       <p><img src={{ character_info.image }}></p>
           <table>
               <tr>
