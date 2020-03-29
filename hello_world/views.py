@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .services import get_episodes_list, get_episode, get_character, get_location, get_character_with_url, get_episode_with_url, get_location_id, get_episodes_list_filter, get_characters_list_filter, get_locations_list_filter
+from .services import get_episodes_list, get_episode, get_character, get_location, get_character_with_url, get_episode_with_url, get_location_id, get_episodes_list_filter, get_characters_list_filter, get_locations_list_filter, get_multiple_character
 
 def hello_world(request):
     episodes_list = get_episodes_list()
