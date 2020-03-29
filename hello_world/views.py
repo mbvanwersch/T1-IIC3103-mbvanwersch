@@ -30,6 +30,8 @@ def show_episode(request):
     episode_info = {
         'episode_number' : episode['episode'],
         'name' : episode['name'],
+        'air_date' : episode['air_date'],
+        'code' : episode['id'],
         'characters' : characters,
     }
 
@@ -46,6 +48,8 @@ def show_character(request):
     for episode_url in character['episode']:
          episodes.append({'name' : get_episode_name(episode_url), 'id' : get_episode_id(episode_url)})
 
+    origin = {'name' : character['origin']['name'], 'id' : get_location_id(character['origin']['url'])}
+
     location = {'name' : character['location']['name'], 'id' : get_location_id(character['location']['url'])}
 
     character_info = {
@@ -54,7 +58,7 @@ def show_character(request):
         'species' : character['species'],
         'type' : character['type'],
         'gender' : character['gender'],
-        'origin' : character['origin']['name'],
+        'origin' : origin,
         'location' : location,
         'image' : character['image'],
         'episodes' : episodes,
