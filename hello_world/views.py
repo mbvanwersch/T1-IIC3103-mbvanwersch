@@ -93,6 +93,8 @@ def show_location(request):
     if len(resident_ids) > 0:
         residents_total = get_multiple_character(resident_ids[:-1])
         if len(resident_ids.split(",")) == 1: # Solo hay 1 elemento
+            print("Hay solo 1 elemento")
+            print(residents_total)
             residents.append({'name' : residents_total['name'], 'id' : residents_total['id']})
         else:
             for res in residents_total:
