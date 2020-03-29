@@ -248,6 +248,12 @@ def get_character(id):
     character = r.json()
     return character
 
+def get_multiple_character(ids):
+    url = "https://rickandmortyapi.com/api/character/"+str(ids)
+    r = requests.get(url)
+    characters = r.json()
+    return characters
+
 def get_location(id):
     url = "https://rickandmortyapi.com/api/location/"+str(id)
     r = requests.get(url)

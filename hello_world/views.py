@@ -79,13 +79,20 @@ def show_character(request):
 
 def show_location(request):
     id = request.GET.get('id', '')
-
+    cuantas_req = 1
     location = get_location(id)
     residents = []
 
+    resident_ids = ""
     for resident_url in location['residents']:
-         character = get_character_with_url(resident_url)
-         residents.append({'name' : character['name'], 'id' : character['id']})
+         resident_ids += resident_url.strip("/")[-1]
+         # character = get_character_with_url(resident_url)
+         # residents.append({'name' : character['name'], 'id' : character['id']})
+         # cuantas_req += 1
+
+    residents_total = get_multiple_character(resident_ids)
+    for res in residents_total:
+        residents.append({'name' : res['name'], 'id' : res['id']})
 
     location_info = {
         'name' : location['name'],
