@@ -48,25 +48,25 @@ th, td {
   <div class="w3-content">
     <div class="w3-twothird">
       <h2>Character information</h2>
-      <p><b>Name: </b>{{ character_info.name }}</p>
-      <p><b>Status: </b>{{ character_info.status }}</p>
-      <p><b>Species: </b>{{ character_info.species }}</p>
-      <p><b>Type: </b>{{ character_info.type }}</p>
-      <p><b>Gender: </b>{{ character_info.gender }}</p>
+      <p><strong>Name: </strong>{{ character_info.name }}</p>
+      <p><strong>Status: </strong>{{ character_info.status }}</p>
+      <p><strong>Species: </strong>{{ character_info.species }}</p>
+      <p><strong>Type: </strong>{{ character_info.type }}</p>
+      <p><strong>Gender: </strong>{{ character_info.gender }}</p>
       {% if character_info.origin.id == -1 %}
-      <p><b>Origin: </b>{{ character_info.origin.name }}</p>
+      <p><strong>Origin: </strong>{{ character_info.origin.name }}</p>
       {% else %}
-      <p><b>Origin: </b><a href="/location/?id={{ character_info.origin.id }}">{{ character_info.origin.name }}</a></p>
+      <p><strong>Origin: </strong><a href="/location/?id={{ character_info.origin.id }}">{{ character_info.origin.name }}</a></p>
       {% endif %}
       {% if character_info.location.id == -1 %}
-      <p><b>Location: </b>{{ character_info.location.name }}</p>
+      <p><strong>Location: </strong>{{ character_info.location.name }}</p>
       {% else %}
-      <p><b>Location: </b><a href="/location/?id={{ character_info.location.id }}">{{ character_info.location.name }}</a></p>
+      <p><strong>Location: </strong><a href="/location/?id={{ character_info.location.id }}">{{ character_info.location.name }}</a></p>
       {% endif %}
       <p><img src={{ character_info.image }}></p>
           <table>
               <tr>
-                  <th><b>Episodes</b></th>
+                  <th><strong>Episodes</strong></th>
               </tr>
               <ul>
               {% for e in character_info.episodes %}
