@@ -4,14 +4,16 @@ import requests
 
 # Create your views here.
 
+base_url = "https://integracion-rick-morty-api.herokuapp.com/api/"
+
 def get_episode(id):
-    url = "https://rickandmortyapi.com/api/episode/"+str(id)
+    url = base_url+"episode/"+str(id)
     r = requests.get(url)
     episode = r.json()
     return episode
 
 def get_episodes_list():
-    url = "https://rickandmortyapi.com/api/episode"
+    url = base_url+"episode"
     r = requests.get(url, headers={})
     episodes = r.json()
     episodes_list = []
@@ -19,7 +21,7 @@ def get_episodes_list():
     pages = []
     counter = 1
     while counter <= num_pages:
-        url = "https://rickandmortyapi.com/api/episode?page="+str(counter)
+        url = base_url+"episode?page="+str(counter)
         r = requests.get(url, headers={})
         episodes_page = r.json()['results']
         for episode in episodes_page:
@@ -30,7 +32,7 @@ def get_episodes_list():
 
 def get_episodes_list_filter(words):
     # Filter by name
-    url = "https://rickandmortyapi.com/api/episode/?name="+words
+    url = base_url+"episode/?name="+words
     r = requests.get(url, headers={})
     episodes = r.json()
     episodes_list = []
@@ -39,7 +41,7 @@ def get_episodes_list_filter(words):
         pages = []
         counter = 1
         while counter <= num_pages:
-            url = "https://rickandmortyapi.com/api/episode?page="+str(counter)+"&name="+words
+            url = base_url+"episode?page="+str(counter)+"&name="+words
             r = requests.get(url, headers={})
             episodes_page = r.json()['results']
             for episode in episodes_page:
@@ -68,7 +70,7 @@ def get_episodes_list_filter(words):
 
 def get_characters_list_filter(words):
     # Filter by name
-    url = "https://rickandmortyapi.com/api/character/?name="+words
+    url = base_url+"character/?name="+words
     r = requests.get(url, headers={})
     characters = r.json()
     characters_list = []
@@ -77,7 +79,7 @@ def get_characters_list_filter(words):
         pages = []
         counter = 1
         while counter <= num_pages:
-            url = "https://rickandmortyapi.com/api/character?page="+str(counter)+"&name="+words
+            url = base_url+"character?page="+str(counter)+"&name="+words
             r = requests.get(url, headers={})
             characters_page = r.json()['results']
             for character in characters_page:
@@ -158,7 +160,7 @@ def get_characters_list_filter(words):
 
 def get_locations_list_filter(words):
     # Filter by name
-    url = "https://rickandmortyapi.com/api/location/?name="+words
+    url = base_url+"location/?name="+words
     r = requests.get(url, headers={})
     locations = r.json()
     locations_list = []
@@ -167,7 +169,7 @@ def get_locations_list_filter(words):
         pages = []
         counter = 1
         while counter <= num_pages:
-            url = "https://rickandmortyapi.com/api/location?page="+str(counter)+"&name="+words
+            url = base_url+"location?page="+str(counter)+"&name="+words
             r = requests.get(url, headers={})
             locations_page = r.json()['results']
             for location in locations_page:
@@ -243,19 +245,19 @@ def get_episode_with_url(url):
     return episode
 
 def get_character(id):
-    url = "https://rickandmortyapi.com/api/character/"+str(id)
+    url = base_url+"character/"+str(id)
     r = requests.get(url)
     character = r.json()
     return character
 
 def get_multiple_character(ids):
-    url = "https://rickandmortyapi.com/api/character/"+str(ids)
+    url = base_url+"character/"+str(ids)
     r = requests.get(url)
     characters = r.json()
     return characters
 
 def get_location(id):
-    url = "https://rickandmortyapi.com/api/location/"+str(id)
+    url = base_url+"location/"+str(id)
     r = requests.get(url)
     location = r.json()
     return location
