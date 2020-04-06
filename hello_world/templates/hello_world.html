@@ -53,7 +53,6 @@ th, td {
               <th style="background-color:#EAEAEA"><strong>Episode</strong></th>
               <th style="background-color:#EAEAEA"><strong>Name</strong></th>
               <th style="background-color:#EAEAEA"><strong>Air Date</strong></th>
-              <th style="background-color:#EAEAEA"><strong>Id</strong></th>
           </tr>
           <ul>
           {% for i in episodes_info %}
@@ -61,7 +60,6 @@ th, td {
                 <td>{{ i.episode }}</td>
                 <td><a href="/episode/?id={{ i.id }}">{{ i.name }}</a></td>
                 <td>{{ i.air_date }}</td>
-                <td>{{ i.id }}</td>
               </tr>
           {% endfor %}
           </ul>
